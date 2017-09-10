@@ -1,0 +1,114 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+// @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans');
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+[data-notify="container"].alert-pastel {
+	border-width: 0px;
+	border-left: 15px solid;
+	border-radius: 0px;
+	box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.3);
+	letter-spacing: 1px;
+}
+[data-notify="container"].alert-pastel > [data-notify="title"] {
+	display: block;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+[data-notify="container"].alert-pastel > [data-notify="message"] {
+	font-weight: 400;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  margin-top: -26px;
+  text-align: center;
+  padding: 1em 0;
+	border-color: #337ab7;
+}
+
+.login-panel {
+  margin-top: 12px;
+}
+
+// .action-buttons {
+//   text-align: right;
+// }
+// form margins too close to edge
+.form-horizontal .form-group {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.field_with_errors {
+  display:inline;
+  width:100%;
+  color: #a94442;
+  background-color: #f2dede;
+  border-bottom: 1px solid #ebccd1;
+  float: right;
+  padding: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.navbar{
+  min-height: 67px;
+}
+.sidebar {
+  margin-top: 67px;
+}
+.well{
+	font-family: 'Source Code Pro', monospace;
+	font-size: 14px;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+.display-table td:last-child{
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+.display-table th{
+  white-space: nowrap;
+}
+.page-header{
+  margin-top: 0;
+}
+.breadcrumb{
+  padding-left: 0;
+  background-color: transparent;
+}
+.clickable > td:hover,
+.clickable > th:hover,
+.clickable:hover > td,
+.clickable:hover,
+.clickable:hover > th {
+  // background-color: #f2faff;
+	color: #337ab7;
+	text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.list-group-horizontal .list-group-item > div {
+    display: inline-block;
+}
+.list-group-horizontal .list-group-item > div {
+	margin-bottom: 0;
+	margin-left:-4px;
+	margin-right: 0;
+}
+.list-group-horizontal .list-group-item:first-child > div {
+	border-top-right-radius:0;
+	border-bottom-left-radius:4px;
+}
+.list-group-horizontal .list-group-item:last-child > div {
+	border-top-right-radius:4px;
+	border-bottom-left-radius:0;
+}

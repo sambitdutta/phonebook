@@ -1,0 +1,221 @@
+AllCops:
+  TargetRubyVersion: 2.4.1
+  DisabledByDefault: true
+  Exclude:
+    - 'Gemfile'
+    - 'db/**/*'
+    - '**/node_modules/**/*'
+
+    
+
+    # - 'actionpack/lib/action_dispatch/journey/parser.rb'
+inherit_from: .rubocop_todo.yml
+# Metrics/LineLength:
+#   Max: 150
+# Prefer &&/|| over and/or.
+Style/AndOr:
+  Enabled: true
+
+# Do not use braces for hash literals when they are the last argument of a
+# method call.
+Style/BracesAroundHashParameters:
+  Enabled: true
+
+# Align `when` with `case`.
+Layout/CaseIndentation: #Style
+  Enabled: true
+
+# Align comments with method definitions.
+Layout/CommentIndentation: #Style
+  Enabled: true
+
+# No extra empty lines.
+Layout/EmptyLines: #Style
+  Enabled: true
+
+# In a regular class definition, no empty lines around the body.
+Layout/EmptyLinesAroundClassBody: #Style
+  Enabled: true
+
+# In a regular method definition, no empty lines around the body.
+Layout/EmptyLinesAroundMethodBody: #Style
+  Enabled: true
+
+# In a regular module definition, no empty lines around the body.
+Layout/EmptyLinesAroundModuleBody: #Style
+  Enabled: true
+
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+Style/HashSyntax:
+  Enabled: true
+
+# Two spaces, no tabs (for indentation).
+Layout/IndentationWidth: #Style
+  Enabled: true
+
+Layout/SpaceAfterColon: #Style
+  Enabled: true
+
+Layout/SpaceAfterComma: #Style
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault: #Style
+  Enabled: true
+
+Layout/SpaceAroundKeyword: #Style
+  Enabled: true
+
+Layout/SpaceAroundOperators: #Style
+  Enabled: true
+
+Layout/SpaceBeforeFirstArg: #Style
+    Enabled: true
+
+# Defining a method with parameters needs parentheses.
+Style/MethodDefParentheses:
+  Enabled: true
+
+# # Use `foo {}` not `foo{}`.
+Layout/SpaceBeforeBlockBraces: #Style
+  Enabled: true
+#
+# Use `foo { bar }` not `foo {bar}`.
+Layout/SpaceInsideBlockBraces: #Style
+  Enabled: true
+
+# Use `{ a: 1 }` not `{a:1}`.
+Layout/SpaceInsideHashLiteralBraces: #Style
+  Enabled: true
+
+Layout/SpaceInsideParens: #Style
+  Enabled: true
+
+# Check quotes usage according to lint rule below.
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+# Detect hard tabs, no hard tabs.
+Layout/Tab: #Style
+  Enabled: true
+
+# # Blank lines should not have any spaces.
+Layout/TrailingBlankLines: #Style
+  Enabled: true
+
+# No trailing whitespace.
+Layout/TrailingWhitespace: #Style
+  Enabled: true
+
+# Use quotes for string literals when they are enough.
+Style/UnneededPercentQ:
+  Enabled: true
+
+# Align `end` with the matching keyword or starting expression except for
+# assignments, where it should be aligned with the LHS.
+Lint/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: variable
+
+# Configuration parameters: EnforcedHashRocketStyle, SupportedHashRocketStyles, EnforcedColonStyle, SupportedColonStyles, EnforcedLastArgumentHashStyle, SupportedLastArgumentHashStyles.
+# SupportedHashRocketStyles: key, separator, table
+# SupportedColonStyles: key, separator, table
+# SupportedLastArgumentHashStyles: always_inspect, always_ignore, ignore_implicit, ignore_explicit
+Layout/AlignHash:
+  Enabled: true
+
+# Configuration parameters: AllowAdjacentOneLineDefs, NumberOfEmptyLines.
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: empty_lines, no_empty_lines
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: normal, rails
+Layout/IndentationConsistency:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/RescueEnsureAlignment:
+  Enabled: true
+
+Layout/SpaceInsideBrackets:
+  Enabled: true
+
+Lint/AssignmentInCondition:
+  Enabled: true
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: true
+
+Performance/RegexpMatch:
+  Enabled: true
+
+Security/Eval:
+  Enabled: true
+
+# Style/Documentation:
+#   Enabled: true
+
+Style/EmptyMethod:
+  Enabled: true
+
+# Configuration parameters: SupportedStyles.
+# SupportedStyles: annotated, template
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+# Configuration parameters: MinBodyLength.
+Style/GuardClause:
+  Enabled: true
+
+Style/MultipleComparison:
+  Enabled: true
+
+Style/MutableConstant:
+  Enabled: true
+
+# Configuration parameters: PreferredDelimiters.
+Style/PercentLiteralDelimiters:
+  Enabled: true
+
+# Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist.
+# NamePrefix: is_, has_, have_
+# NamePrefixBlacklist: is_, has_, have_
+# NameWhitelist: is_a?
+Style/PredicateName:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: short, verbose
+Style/PreferredHashMethods:
+  Enabled: true
+
+# Offense count: 12
+# Cop supports --auto-correct.
+# Configuration parameters: AllowMultipleReturnValues.
+Style/RedundantReturn:
+  Enabled: true
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: AllowAsExpressionSeparator.
+Style/Semicolon:
+  Enabled: true
+
+# Configuration parameters: SupportedStyles.
+# SupportedStyles: percent, brackets
+Style/SymbolArray:
+  EnforcedStyle: percent
+  MinSize: 1
+
+Style/UnneededInterpolation:
+  Enabled: true

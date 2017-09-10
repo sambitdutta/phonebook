@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= content_for?(:title) ? yield(:title) : "cATS" %>
+  </title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Automation Onboarding Admin Panel" %>">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag params[:controller], media: 'all' if Rails.application.assets.find_asset params[:controller] %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="<%= [controller_name, action_name].join(' ').gsub(/\_/, '-') %>">
+  <div id="wrapper" class="">
+    <%= render 'layouts/navbar' %>
+  </div>
+
+  <div id="page-wrapper">
+    <%= render 'layouts/title' %>
+    <%= yield %>
+  </div>
+</body>
+<%= javascript_include_tag 'application' %>
+<%= javascript_include_tag params[:controller] if Rails.application.assets.find_asset params[:controller] %>
+<%= javascript_tag type: 'text/javascript' do -%>
+  <%= content_for?(:extra_scripts) ? yield(:extra_scripts) : nil %>
+  <%= raw render 'layouts/messages_js.coffee' %>
+<% end %>
+</html>

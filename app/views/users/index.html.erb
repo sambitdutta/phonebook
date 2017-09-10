@@ -1,0 +1,42 @@
+<% content_for(:page_header) do %>
+User Administration
+<% end %>
+
+  <table id="user_list" class="display table table-striped table-sm table-hover" cellspacing="0" width="100%" >
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Admin</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr class='clickable' data-location='<%= edit_user_path(user) %>'>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <%# check cancancan ability class for user: %>
+        <% ability = Ability.new(user) %>
+        <%# if user is admin; checkbox is checked but disabled. User has to click
+        row to edit user %>
+        <% if (ability.can? :manage, :all) %>
+          <td><%= check_box_tag "admin", 1, true, disabled: true %></td>
+        <%# if user is not admin: checkbox is unchecked and disabled. %>
+        <% else %>
+          <td><%= check_box_tag "admin", 1, false, disabled: true %></td>
+        <% end %>
+       </tr>
+       <% end %>
+     </tbody>
+   </table>
+
+
+  <% content_for(:extra_scripts) do %>
+
+      $(document).ready(function() {
+        $('#users').DataTable({ responsive:
+          true<%= ', searching: false, paging: false, info: false' if @users.count <= 10 %>  });
+      });
+
+  <% end %>

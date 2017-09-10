@@ -1,0 +1,51 @@
+<% content_for(:page_header) do %>
+Administration of User: <%= @user.username %>
+<% end %>
+
+<div class="user_edit">
+  <%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
+    <%= error_messages_for(f.object) %>
+    <div class="form-group" >
+      <%= f.label :username, 'Username:' %><br>
+      <%= f.text_field(:username, class: 'form-control', readonly: true) %>
+    </div>
+
+    <div class="form-group <%= f.object.errors[:fqdn].empty? ? "" : "has-error" %>">
+      <%= f.label :email, 'Email:' %><br>
+      <%= f.text_field(:email, class: 'form-control', readonly: true) %>
+    </div>
+
+    <%# if user is 'opca' make readonly....need at least one user that cannot be
+    changed and is always 'admin', otherwise users could potentially lock
+    themselves out with no 'admin' user on system %>
+    <% if (@user.username == 'opca') && (@ability.can? :manage, :all)  %>
+      <% flash[:warning] = "Admin user 'opca' cannot be edited." %>
+      <div class="form-group <%= f.object.errors[:subnet].empty? ? "" : "has-error" %>">
+        <%= f.label 'Admin:' %>
+        <%= f.check_box :admin, {checked: true, disabled: true} %>
+      </div>
+    <%# if user is 'admin' and not the 'opca' user allow updates to remove 'admin' rights %>
+
+    <% elsif (@user.username != 'opca') && (@ability.can? :manage, :all) %>
+      <div class="form-group <%= f.object.errors[:subnet].empty? ? "" : "has-error" %>">
+        <%= f.label 'Admin:' %>
+        <%= f.check_box :admin, {checked: true} %>
+      </div>
+      <%# if user is not 'admin' allow updates to add 'admin' rights %>
+    <% else %>
+      <div class="form-group <%= f.object.errors[:subnet].empty? ? "" : "has-error" %>">
+        <%= f.label 'Admin:' %>
+        <%= f.check_box :admin, {checked: false} %>
+      </div>
+    <% end %>
+</div>
+
+    <% if @user.username != 'opca' %>
+      <div class="form-buttons">
+        <%= f.submit("Update User", class: "btn btn-primary") %>
+      </div>
+    <% end %>
+
+  <% end %>
+
+</div>

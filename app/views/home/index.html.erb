@@ -1,0 +1,23 @@
+<% content_for :action_buttons do %>
+<div class="input-group">
+    <input data-provide="datepicker" id="start_date" type="text" class="form-control" value="<%= (Time.now.getlocal-29.days).strftime('%m/%d/%Y') %>" />
+    <span class="input-group-addon">to</span>
+    <input data-provide="datepicker" id="end_date" type="text" class="form-control" value="<%= Time.now.getlocal.strftime('%m/%d/%Y') %>" />
+</div>
+<% end %>
+<div class="row">
+  <div class="col-lg-9">
+    <%= render(:partial => 'home/task_chart') %>
+    <div class="row">
+      <div class="col-lg-6">
+        <%# render 'ip_subnets/ips_left' %>
+      </div>
+      <div class="col-lg-6">
+        <%# render 'data_gateway_uids/uids_left' %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <%= render(:partial => 'task_status') %>
+  </div>
+</div>
