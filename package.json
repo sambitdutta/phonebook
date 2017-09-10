@@ -1,5 +1,5 @@
 {
-  "name": "app_name",
+  "name": "phonebook",
   "private": true,
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
