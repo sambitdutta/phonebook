@@ -1,0 +1,34 @@
+<div class="form-group phone-field">
+    <div class="">
+        <div class="nested-form">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h4>Phone</h4>
+                </div>
+
+                <div class="col-sm-3">
+                    <%= link_to_remove_fields "Remove", f, :class => "pull-right remove-phone-field"  %>
+                </div>
+            </div>
+            
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :phone_type_id%>
+                        <%=f.select :phone_type_id, options_for_select(PhoneType.all.map{|c| [c.name, c.id]}, f.object.phone_type_id), {}, {:class => "form-control"}%>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :number%>
+                        <%=f.text_field :number, :class => "form-control"%>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</div>

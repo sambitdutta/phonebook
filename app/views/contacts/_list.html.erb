@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading ">
+        <i class="glyphicon glyphicon-book"></i> Contacts
+    </div>
+    <div class=panel-body>
+
+        <div class="row">
+            
+            <%= render(partial: "contact", collection: @contacts, as: :contact) || content_tag(:div, "You have no contacts", class: "col-sm-12") %>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="form-group address-field">
+    <div class="">
+        <div class="nested-form">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h4>Address</h4>
+                </div>
+
+                <div class="col-sm-3">
+                    <%= link_to_remove_fields "Remove", f, :class => "pull-right remove-address-field"  %>
+                </div>
+            </div>
+            
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <%=f.label :address_type_id%>
+                        <%=f.select :address_type_id, options_for_select(AddressType.all.map{|c| [c.name, c.id]}, f.object.address_type_id), {}, {:class => "form-control"}%>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :address_1%>
+                        <%=f.text_field :address_1, :class => "form-control"%>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :address_2%>
+                        <%=f.text_field :address_2, :class => "form-control"%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :city%>
+                        <%=f.text_field :city, :class => "form-control"%>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :pin_code%>
+                        <%=f.text_field :pin_code, :class => "form-control"%>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :state%>
+                        <%=f.text_field :state, :class => "form-control"%>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <%=f.label :country_id%>
+                        <%=f.select :country_id, options_for_select(Country.all.map{|c| [c.name, c.id]}, f.object.country_id), {:prompt => "Select"}, {:class => "form-control"}%>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+</div>

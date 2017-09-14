@@ -1,0 +1,147 @@
+<% present @contact do |contact|%>
+
+  <% content_for :page_header do %>
+    Contact - <%= contact.full_name %>
+  <%end%>
+
+  <div class="row">
+
+      <div class="col-sm-6">
+          <div class="form-group">
+              <%=label_tag :first_name %><br />
+              <p class="form-control-static"><%= contact.first_name %></p>
+          </div>
+      </div>
+
+      <div class="col-sm-6">
+          <div class="form-group">
+              <%=label_tag :last_name %><br />
+              <p class="form-control-static"><%= contact.last_name %></p>
+          </div>
+      </div>
+
+  </div>
+
+  <%contact.contact.phones.each_with_index do |phone, i|%>
+
+    <div class="form-group phone-field">
+        <div class="">
+            <div class="nested-form">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4>Phone</h4>
+                    </div>
+
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%=label_tag :address_type %><br />
+                            <p class="form-control-static"><%= phone.phone_type_name %></p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%=label_tag :number %><br />
+                            <p class="form-control-static"><%= phone.number %></p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+  <%end%>
+
+
+  <br/>
+
+  <%contact.contact.addresses.each_with_index do |address, i|%>
+    <div class="form-group address-field">
+        <div class="">
+            <div class="nested-form">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4>Address</h4>
+                    </div>
+
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <%= label_tag :address_type %><br />
+                            <p class="form-control-static"><%= address.address_type_name %></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%= label_tag :address_1 %><br />
+                            <p class="form-control-static"><%= address.address_1 %></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%= label_tag :address_2 %><br />
+                            <p class="form-control-static"><%= address.address_2 %></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%= label_tag :city %><br />
+                            <p class="form-control-static"><%= address.city %></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%= label_tag :pin_code %><br />
+                            <p class="form-control-static"><%= address.pin_code %></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%= label_tag :state %><br />
+                            <p class="form-control-static"><%= address.state %></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <%= label_tag :country %><br />
+                            <p class="form-control-static"><%= address.country_name %></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+  <%end%>
+
+<%end%>

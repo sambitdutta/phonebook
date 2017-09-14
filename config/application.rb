@@ -19,7 +19,8 @@ Bundler.require(*Rails.groups)
 module Phonebook
   class Application < Rails::Application
     config.active_record.schema_format = :sql
-config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths += %W(#{Rails.root}/app/forms #{Rails.root}/app/services #{Rails.root}/app/presenters)
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1

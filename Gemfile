@@ -62,6 +62,10 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
+  gem 'rails-controller-testing'
 end
 
 gem 'pry-rails', group: :development
+
+gem 'city-state'
+#gem 'validates_zipcode'
