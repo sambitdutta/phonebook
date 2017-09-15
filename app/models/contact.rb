@@ -33,7 +33,7 @@ class Contact < ApplicationRecord
   end
   
   def self.get_dummy_contact user
-    @contact = FactoryGirl.build(:contact, first_name: 'Sambit', last_name: "Dutta", user: user)
+    @contact = FactoryGirl.build(:contact, user: user)
     @contact.phones.build FactoryGirl.attributes_for(:phone, contact: @contact)
     @contact.addresses.build FactoryGirl.attributes_for(:address, contact: @contact, country_id: Country.first.id)
   end
