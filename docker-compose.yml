@@ -2,7 +2,7 @@ app:
   build: .
   environment:
     RAILS_ENV: development
-    DATABASE_URL: mysql2://root:root@mysql/rails
+    DATABASE_URL: mysql2://root:root@mysql/phonebook
   ports:
   - "3000:3000"
   volumes:
@@ -13,4 +13,4 @@ mysql:
   image: mysql
   environment:
     MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: rails
+    MYSQL_DATABASE: phonebook
