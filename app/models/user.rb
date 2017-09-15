@@ -8,6 +8,8 @@ class User < ApplicationRecord
   # devise :database_authenticatable, :ldap_authenticatable, :rememberable, :trackable
 
   after_create :assign_default_role
+  
+  include Prepopulate
 
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
@@ -47,5 +49,9 @@ class User < ApplicationRecord
       conditions[:email].downcase! if conditions[:email]
       where(conditions.to_hash).first
     end
+  end
+  
+  def self.get_dummy_user
+    FactoryGirl.build(:user, username: 'test.test'+(Math.send(:rand)*10000).to_i.to_s)
   end
 end

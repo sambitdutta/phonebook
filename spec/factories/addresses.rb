@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :address do
-    address_1 Faker::Address.secondary_address
-    address_2 Faker::Address.street_address
-    city Faker::Address.city
-    pin_code Faker::Address.zip_code
-    state Faker::Address.state
+    address_1 { Faker::Address.secondary_address }
+    address_2 { Faker::Address.street_address }
+    city { Faker::Address.city }
+    pin_code { Faker::Address.zip_code }
+    state { Faker::Address.state }
     association :contact
     country { Country.first }
     address_type { AddressType.first }
